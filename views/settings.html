@@ -1,0 +1,92 @@
+<div>
+
+    <form name="cmdForm">
+
+	<h3>Set Commands</h3>
+
+	<div class="modal-body">
+
+	    <!-- Lost Command -->
+	    <div class="control-group">
+		<label class="control-label" for="lostCmd">Lost Command</label>
+		<div class="controls">
+		    <input type="text" id="lostCmd" name="lostCmd" placeholder="Lost Command" class="input-medium" data-ng-model="settings.lostCmd" pattern="[a-zA-Z0-9 ]{4,}" title="Minimum 4 letters of numbers." data-ng-minlength="4" data-ng-maxlength="20" data-ng-pattern="/^[A-Za-z0-9 ]*$/" required autofocus />
+		    <span class="help-block" data-ng-show="createForm.lostCmd.$error.required && createForm.lostCmd.$dirty">required</span>
+		    <span class="help-block" data-ng-show="!createForm.lostCmd.$error.required && (createForm.lostCmd.$error.minlength || createForm.lostCmd.$error.maxlength) && createForm.lostCmd.$dirty">Invalid command</span>
+
+		</div>
+	    </div>
+
+	    <!-- Found Command -->
+	    <div class="control-group">
+		<label class="control-label" for="foundCmd">Found Command</label>
+		<div class="controls">
+		    <input type="text" id="foundCmd" name="foundCmd" placeholder="Found Command" class="input-medium" data-ng-model="settings.foundCmd" pattern="[a-zA-Z0-9 ]{4,}" title="Minimum 4 letters of numbers." data-ng-minlength="4" data-ng-maxlength="20" data-ng-pattern="/^[A-z][A-z0-9 ]*$/" required />
+		    <span class="help-block" data-ng-show="createForm.foundCmd.$error.required && createForm.foundCmd.$dirty">required</span>
+		    <span class="help-block" data-ng-show="!createForm.foundCmd.$error.required && createForm.foundCmd.$error.foundCmd && createForm.foundCmd.$dirty">Invalid command</span>
+		</div>
+	    </div>
+
+	    <!-- Lock Command -->
+	    <div class="control-group">
+		<label class="control-label" for="lockCmd">Lock Command</label>
+		<div class="controls">
+		    <input type="text" id="lockCmd" name="lockCmd" placeholder="Lock Command" class="input-medium" data-ng-model="settings.lockCmd" pattern="[a-zA-Z0-9 ]{4,}" title="Minimum 4 letters of numbers." data-ng-minlength="4" data-ng-maxlength="20" data-ng-pattern="/^[A-Za-z0-9 ]*$/" required autofocus />
+		    <span class="help-block" data-ng-show="createForm.lockCmd.$error.required && createForm.lockCmd.$dirty">required</span>
+		    <span class="help-block" data-ng-show="!createForm.lockCmd.$error.required && (createForm.lockCmd.$error.minlength || createForm.lockCmd.$error.maxlength) && createForm.lockCmd.$dirty">Invalid command</span>
+
+		</div>
+	    </div>
+
+	    <!-- Alert Command -->
+	    <div class="control-group">
+		<label class="control-label" for="alertCmd">Alert Command</label>
+		<div class="controls">
+		    <input type="text" id="alertCmd" name="alertCmd" placeholder="Alert Command" class="input-medium" data-ng-model="settings.alertCmd" pattern="[a-zA-Z0-9 ]{4,}" title="Minimum 4 letters of numbers." data-ng-minlength="4" data-ng-maxlength="20" data-ng-pattern="/^[A-z][A-z0-9 ]*$/" required />
+		    <span class="help-block" data-ng-show="createForm.alertCmd.$error.required && createForm.alertCmd.$dirty">required</span>
+		    <span class="help-block" data-ng-show="!createForm.alertCmd.$error.required && createForm.alertCmd.$error.foundCmd && createForm.alertCmd.$dirty">Invalid command</span>
+		</div>
+	    </div>
+
+	    <!-- Wipe Command -->
+	    <div class="control-group">
+		<label class="control-label" for="wipeCmd">Wipe Command</label>
+		<div class="controls">
+		    <input type="text" id="wipeCmd" name="wipeCmd" placeholder="Wipe Command" class="input-medium" data-ng-model="settings.wipeCmd" pattern="[a-zA-Z0-9 ]{4,}" title="Minimum 4 letters of numbers." data-ng-minlength="4" data-ng-maxlength="20" data-ng-pattern="/^[A-z][A-z0-9 ]*$/" required />
+		    <span class="help-block" data-ng-show="createForm.wipeCmd.$error.required && createForm.wipeCmd.$dirty">required</span>
+		    <span class="help-block" data-ng-show="!createForm.wipeCmd.$error.required && createForm.wipeCmd.$error.foundCmd && createForm.wipeCmd.$dirty">Invalid command</span>
+		</div>
+	    </div>
+	    <div class="controls">
+		<button type="submit" class="btn" data-ng-click="saveCmd(settings)" data-ng-disabled="!cmdForm.$valid">Save</button>
+	    </div>
+
+	</div>
+
+    </form>
+
+    <form name="passkeyForm">
+
+	<h3>Set Passskey</h3>
+
+	<div class="modal-body">
+
+	    <div class="control-group">
+		<label class="control-label" for="password">Passkey</label>
+		<div class="controls">
+		    <input type="text" id="password" name="password" data-ng-model="settings.passkey" data-ng-minlength="6" data-ng-maxlength="20" data-ng-pattern="/^[A-z][A-z0-9]*$/" pattern="[a-zA-Z0-9]{6,}" title="A minimum of 6 characters" placeholder="Passkey"  />
+		    <span class="help-block" data-ng-show="createForm.password.$error.required && createForm.password.$dirty">required</span>
+		    <span class="help-block" data-ng-show="!createForm.password.$error.required && (createForm.password.$error.minlength || createForm.password.$error.maxlength) && createForm.password.$dirty">Passkey must be between 6 and 20 characters.</span>
+		    <span class="help-block" data-ng-show="!createForm.password.$error.required && !createForm.password.$error.minlength && !createForm.password.$error.maxlength && createForm.password.$error.pattern && createForm.password.$dirty">Must contain only letter and numbers(No white spaces)</span>
+		</div>
+	    </div>
+	    <div class="controls">
+		<button type="submit" class="btn" data-ng-click="savePasskey(settings)" data-ng-disabled="!passkeyForm.$valid">Save</button>
+	    </div>
+
+	</div>
+
+    </form>
+
+
+</div>

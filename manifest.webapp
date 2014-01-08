@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "name": "Find My Phone",
+    "launch_path": "index.html",
+    "description": "Locate Me",
+	"type" : "certified",
+    "icons": {
+		"16" : "/images/icons/search16x16.png",
+		"32" : "/images/icons/search32x32.png",
+		"64" : "/images/icons/search64x64.png",
+		"128" : "/images/icons/search128x128.png"
+    },
+    "developer": {
+        "name": "Laurence Barnes",
+        "url": "http://laubarnes.com"
+    },
+    "default_locale": "en",
+    "permissions": {
+        "backgroundservice":{},
+		"desktop-notification": {
+            "description" : "To show notifications"
+        },
+        "geolocation": {
+            "description" : "Marking out user location"
+        },
+	"sms":{},
+	"settings":{ 
+	    "description": "During an alert, turn on wifi, mobile internet and GPS for more accurate reporting of location.",
+	    "access": "readwrite" 
+	},
+	"audio-channel-notification":{}
+    },
+    "messages": [
+	 { "sms-received": "/index.html" }
+      ]
+}

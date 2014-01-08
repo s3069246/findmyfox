@@ -1,0 +1,65 @@
+<div>
+
+    <div class="gap"></div>
+    
+
+    <div class="well {{alert.class}}">
+	
+	<div data-ng-hide="alert.status">
+	    <h3>Phone is fine</h3>
+	</div>
+	
+	<div data-ng-hide="!alert.status">
+	    <h3>Device is lost</h3>
+	    <p>Sender: {{alert.sender}}</p>
+	    <p>Time Stamp: {{alert.timestamp}}</p>
+	</div>
+	
+    </div>
+    
+    <div data-ng-show="(isLoggedin && alert.status)" class="text-center">
+	<button type="submit" class="btn btn-danger btn-large" data-ng-click="stopTracking()">End Alert</button>
+    </div>
+    
+    <div data-ng-show="!hasUser">
+	<p>Create an account</p>
+	<a href="#/register" class="btn btn-primary btn-large">Register</a> 
+    </div>
+    
+    <div data-ng-show="(hasUser && !isLoggedin)">
+	<p>Please Login</p>
+	<a href="#/login" class="btn btn-primary btn-large">Login</a> 
+    </div>
+    
+    <div data-ng-show="(isLoggedin)">
+
+    <h3>Location</h3>
+
+    <p>Latitude: {{position.coords.latitude}}</p>
+    <p>Longitude: {{position.coords.longitude}}</p>
+    <p>Accuracy: {{position.coords.accuracy}}</p>
+    <p>Time Stamp: {{position.timestamp | date:'medium'}}</p>
+
+    <h3>Messages</h3>
+
+    <p><button type="submit" class="btn" data-ng-click="startTrackingMsg()">Test Start Alert Message</button></p>
+    <p><button type="submit" class="btn" data-ng-click="stopTrackingMsg()">Test Stop Alert Message</button></p>
+    <p><button type="submit" class="btn" data-ng-click="sendSMS()">Send Message</button></p>
+
+    <h3>Settings</h3>
+
+    <p><button type="submit" class="btn" data-ng-click="getSettingStatus('wifi.enabled')">Check the status of Wifi</button></p>
+    <p><button type="submit" class="btn" data-ng-click="activateSetting('wifi.enabled')">Turn on Wifi</button></p>
+    <p><button type="submit" class="btn" data-ng-click="disableSetting('wifi.enabled')">Turn off Wifi</button></p>
+    <hr />
+    <p><button type="submit" class="btn" data-ng-click="getSettingStatus('geolocation.enabled')">Check the status of GPS</button></p>
+    <p><button type="submit" class="btn" data-ng-click="activateSetting('geolocation.enabled')">Turn on GPS</button></p>
+    <p><button type="submit" class="btn" data-ng-click="disableSetting('geolocation.enabled')">Turn off GPS</button></p>
+    <hr />
+    <p><button type="submit" class="btn" data-ng-click="getSettingStatus('ril.data.enabled')">Check the status of Mobile Data</button></p>
+    <p><button type="submit" class="btn" data-ng-click="activateSetting('ril.data.enabled')">Turn on Mobile Data</button></p>
+    <p><button type="submit" class="btn" data-ng-click="disableSetting('ril.data.enabled')">Turn off Mobile Data</button></p>
+    
+    </div>
+
+</div>

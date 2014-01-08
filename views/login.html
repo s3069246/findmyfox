@@ -1,0 +1,29 @@
+<div>
+
+    <form name="loginForm" data-ng-submit="login(user)">
+
+	<div class="modal-body">
+
+	    <div class="control-group">
+		<label class="control-label" for="userUsername">Username</label>
+		<div class="controls">
+		    <input type="text" id="userUsername" placeholder="Username" class="input-medium" data-ng-model="user.username" required autofocus />
+		</div>
+	    </div>
+
+	    <div class="control-group">
+		<label class="control-label" for="userPassword">Password</label>
+		<div class="controls">
+		    <input type="password" id="userPassword" class="input-medium" data-ng-model="user.password" required />
+		</div>
+	    </div>
+
+	    <div class="controls">
+		<button type="submit" class="btn">Login</button>
+	    </div>
+
+	</div>
+
+    </form>
+
+</div>

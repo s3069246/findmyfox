@@ -1,0 +1,55 @@
+<div>
+<form name="createForm">
+
+	<div class="modal-body">
+
+	    <div class="control-group">
+		<label class="control-label" for="username">Username</label>
+		<div class="controls">
+		    <input type="text" id="username" name="username" placeholder="Username" class="input-medium" data-ng-model="user.username" pattern="[a-zA-Z0-9]{4,}" title="Minimum 4 letters of numbers." data-ng-minlength="4" data-ng-maxlength="20" data-ng-pattern="/^[A-z][A-z0-9]*$/" required autofocus />
+		    <span class="help-block" data-ng-show="createForm.username.$error.required && createForm.username.$dirty">required</span>
+		    <span class="help-block" data-ng-show="!createForm.username.$error.minLength && !createForm.username.$error.maxLength && createForm.username.$error.pattern && createForm.username.$dirty">Must start with a letter, and contain letters &amp; numbers only.</span>
+		    <span class="help-block" data-ng-show="!createForm.username.$error.required && (createForm.username.$error.minlength || createForm.username.$error.maxlength) && createForm.username.$dirty">Username must be between 4 and 20 characters.</span>
+		</div>
+	    </div>
+
+	    <div class="control-group">
+		<label class="control-label" for="email">Email Address</label>
+		<div class="controls">
+		    <input type="email" id="email" name="email" placeholder="Email Address" class="input-medium" data-ng-model="user.emailAddress" required />
+		    <span class="help-block" data-ng-show="createForm.email.$error.required && createForm.email.$dirty">required</span>
+		    <span class="help-block" data-ng-show="!createForm.email.$error.required && createForm.email.$error.email && createForm.email.$dirty">invalid email</span>
+		</div>
+	    </div>
+
+	    
+	    <div class="control-group">
+		<label class="control-label" for="password">Password</label>
+		<div class="controls">
+		    <input type="password" id="password" name="password" data-ng-model="user.password" data-ng-minlength="6" data-ng-maxlength="20" data-ng-pattern="/(?=.*[^a-zA-Z])/" pattern=".{6,}" title="A minimum of 6 characters" placeholder="Password" required  />
+		    <span class="help-block" data-ng-show="createForm.password.$error.required && createForm.password.$dirty">required</span>
+		    <span class="help-block" data-ng-show="!createForm.password.$error.required && (createForm.password.$error.minlength || createForm.password.$error.maxlength) && createForm.password.$dirty">Passwords must be between 6 and 20 characters.</span>
+		    <span class="help-block" data-ng-show="!createForm.password.$error.required && !createForm.password.$error.minlength && !createForm.password.$error.maxlength && createForm.password.$error.pattern && createForm.password.$dirty">Must contain one lower or uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+		</div>
+	    </div>
+	    
+<!--
+	    <div class="control-group">
+		<label class="control-label" for="password_verify">Confirm Password</label>
+		<div class="controls">
+		    <input type="password" id="password_verify" name="password_verify" data-ng-model="user.password_verify" data-valid-password pattern=".{6,}" title="A minimum of 6 characters" placeholder="Password" required  />
+		    <span class="help-block" data-ng-show="createForm.password_verify.$error.required && createForm.password_verify.$dirty">Please confirm your password.</span>
+		    <span class="help-block" data-ng-show="!createForm.password_verify.$error.required && createForm.password_verify.$error.noMatch && createForm.password.$dirty">Passwords do not match.</span>
+		</div>
+	    </div>
+	    
+	    -->
+
+	    <div class="controls">
+		<button type="submit" class="btn" data-ng-click="register(user)" data-ng-disabled="!createForm.$valid">Register</button>
+	    </div>
+
+	</div>
+
+    </form>
+</div>
